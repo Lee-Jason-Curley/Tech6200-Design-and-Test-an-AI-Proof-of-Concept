@@ -37,6 +37,7 @@ const App = () => {
         onChange={(e) => setCity(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
+      <button onClick={() => setCity('')}>Clear</button>
       {weatherData && <WeatherCard data={weatherData} />}
       {date && <Calendar date={date} />}
       {meteorologicalPredictions && (

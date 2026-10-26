@@ -35,25 +35,27 @@ const App = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter city"
-        value={city}
-        onChange={(e) => {
-          setCity(e.target.value);
-          if (!e.target.value) setError('');
-        }}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <button
-        onClick={() => {
-          setCity('');
-          setError('');
-        }}
-      >
-        Clear
-      </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div style={{ margin: '16px' }}>
+        <input
+          type="text"
+          placeholder="Enter city"
+          value={city}
+          onChange={(e) => {
+            setCity(e.target.value);
+            if (!e.target.value) setError('');
+          }}
+        />
+        <button onClick={handleSearch}>Search</button>
+        <button
+          onClick={() => {
+            setCity('');
+            setError('');
+          }}
+        >
+          Clear
+        </button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
       {weatherData && <WeatherCard data={weatherData} />}
       {date && <Calendar date={date} />}
       {meteorologicalPredictions && (

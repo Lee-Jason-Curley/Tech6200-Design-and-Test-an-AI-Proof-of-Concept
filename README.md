@@ -123,9 +123,15 @@ This project is licensed under the [MIT License](LICENSE).
 
 
 
-## Author
+## Authors
 
 👤 **Aras Güngöre**
 
 - LinkedIn: [@arasgungore](https://www.linkedin.com/in/arasgungore)
 - GitHub: [@arasgungore](https://github.com/arasgungore)
+
+
+👤 **Lee Jason Curley**
+
+- LinkedIn: [@jason-curley](https://www.linkedin.com/in/jason-curley-3a568b7/)
+- GitHub: [@lee-jason-curley](https://github.com/Lee-Jason-Curley)

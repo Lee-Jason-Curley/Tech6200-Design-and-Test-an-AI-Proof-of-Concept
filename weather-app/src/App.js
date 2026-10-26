@@ -8,6 +8,7 @@ import { getWeatherData } from './services/WeatherService';
 const App = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState('');
   const [date, setDate] = useState('');
   const [meteorologicalPredictions, setMeteorologicalPredictions] = useState('');
 
@@ -20,10 +21,14 @@ const App = () => {
   }, []);
 
   const handleSearch = async () => {
+    setError('');
     try {
       const data = await getWeatherData(city);
       setWeatherData(data);
     } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setError('Invalid city. Please check the name and try again.');
+      }
       console.error('Error fetching weather data:', error);
     }
   };
@@ -34,10 +39,21 @@ const App = () => {
         type="text"
         placeholder="Enter city"
         value={city}
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e) => {
+          setCity(e.target.value);
+          if (!e.target.value) setError('');
+        }}
       />
       <button onClick={handleSearch}>Search</button>
-      <button onClick={() => setCity('')}>Clear</button>
+      <button
+        onClick={() => {
+          setCity('');
+          setError('');
+        }}
+      >
+        Clear
+      </button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       {weatherData && <WeatherCard data={weatherData} />}
       {date && <Calendar date={date} />}
       {meteorologicalPredictions && (

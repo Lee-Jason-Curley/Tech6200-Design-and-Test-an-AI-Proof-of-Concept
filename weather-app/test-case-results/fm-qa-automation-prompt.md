@@ -1,6 +1,7 @@
 # Primary Prompt / Instructions / Configuration
 
 **Name:** fm-qa-automation
+
 **Description:** Writes and runs automation tests for an approved Azure DevOps work item so QA can approve on test results instead of manual testing. Picks Playwright browser tests, NUnit API tests, or both from what the work item changes, runs them against the QA lane, and reports what was proven and what still needs a person. Never approves a pull request. Triggers on: "write automation tests for AB#123456", "automate QA for AB#", "add Playwright tests for AB#", "add API tests for AB#", "QA automation".
 
 **fm-qa-automation v0.1.0**
